@@ -14,3 +14,7 @@ class TestTransaction(unittest.TestCase):
 
     def test_transaction_has_tag(self):
         self.assertEqual("Takeaway", self.transaction.tag)
+
+    def test_transaction_has_id(self):
+        self.assertEqual(None, self.transaction.id)
+    
