@@ -9,4 +9,4 @@ CREATE TABLE transactions(
     id SERIAL PRIMARY KEY,
     amount FLOAT,
     merchant_id INTEGER REFERENCES merchants(id) ON DELETE CASCADE,
-    tag VARCHAR(255),);
+    tag VARCHAR(255));

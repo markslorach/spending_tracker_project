@@ -7,3 +7,4 @@ import repositories.transaction_repository as transaction_repository
 
 
 transaction_blueprint = Blueprint("transaction", __name__)
+
