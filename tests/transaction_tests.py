@@ -8,3 +8,6 @@ class TestTransaction(unittest.TestCase):
     
     def test_transaction_has_amount(self):
         self.assertEqual(4.50, self.transaction.amount)
+
+    def test_transaction_has_merchant(self):
+        self.assertEqual("Falafel To Go", self.transaction.merchant)
