@@ -34,3 +34,4 @@ def select_all():
         transaction = Transaction(row['amount'], merchant, row['tag'], row['id'])
         transactions.append(transaction)
     return transactions
+

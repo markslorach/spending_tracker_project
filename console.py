@@ -4,7 +4,9 @@ from models.transaction import Transaction
 import repositories.merchant_repository as merchant_repository
 import repositories.transaction_repository as transaction_repository
 
-# delete all merchants
+# Delete all transactions
+transaction_repository.delete_all()
+# Delete all merchants
 merchant_repository.delete_all()
 
 # Inital merchants
@@ -35,7 +37,6 @@ transaction_repository.save(transaction_3)
 transaction_repository.save(transaction_4)
 transaction_repository.save(transaction_5)
 
-# merchants = merchant_repository.select_all()
-transactions = transaction_repository.select_all()
-
-print(transactions)
+# # merchants = merchant_repository.select_all()
+# transactions = transaction_repository.select_all()
+# print(transactions)
