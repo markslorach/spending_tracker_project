@@ -21,6 +21,21 @@ merchant_repository.save(merchant_3)
 merchant_repository.save(merchant_4)
 merchant_repository.save(merchant_5)
 
+# Inital transactions
+transaction_1 = Transaction(4.50, merchant_1, "Takeaway")
+transaction_2 = Transaction(12.50, merchant_2, "Groceries")
+transaction_3 = Transaction(25.00, merchant_3, "Autocare")
+transaction_4 = Transaction(15.00, merchant_4, "Entertainment")
+transaction_5 = Transaction(5.50, merchant_5, "Takeaway")
+
+# Save transactions to database
+transaction_repository.save(transaction_1)
+transaction_repository.save(transaction_2)
+transaction_repository.save(transaction_3)
+transaction_repository.save(transaction_4)
+transaction_repository.save(transaction_5)
 
 # merchants = merchant_repository.select_all()
-# print(merchants)
+transactions = transaction_repository.select_all()
+
+print(transactions)
