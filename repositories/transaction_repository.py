@@ -13,6 +13,17 @@ def save(transaction):
     transaction.id = id
     return transaction
 
+# Deletes all transactions from the database
+def delete_all():
+    sql = "DELETE FROM transactions"
+    run_sql(sql)
+
+# Deletes a transaction from the database by id
+def delete(id):
+    sql = "DELETE FROM transactions WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 # Selects all transactions from the database
 def select_all():
     transactions = []
