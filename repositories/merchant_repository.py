@@ -11,7 +11,18 @@ def save(merchant):
     id = results[0]['id']
     merchant.id = id
     return merchant
-    
+
+# Deletes all merchants from the database
+def delete_all():
+    sql = "DELETE FROM merchants"
+    run_sql(sql)
+
+# Deletes a merchant from the database by id
+def delete(id):
+    sql = "DELETE FROM merchants WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 # Selects all merchants from the database
 def select_all():
     merchants = []
