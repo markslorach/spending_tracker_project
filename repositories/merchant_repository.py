@@ -23,6 +23,12 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+# Updates a merchant in the database
+def update(merchant):
+    sql = "UPDATE merchants SET name = %s WHERE id = %s"
+    values = [merchant.name, merchant.id]
+    run_sql(sql, values)
+
 # Selects all merchants from the database
 def select_all():
     merchants = []
