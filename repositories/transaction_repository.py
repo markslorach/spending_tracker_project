@@ -12,3 +12,14 @@ def save(transaction):
     id = results[0]['id']
     transaction.id = id
     return transaction
+
+# Selects all transactions from the database
+def select_all():
+    transactions = []
+    sql = "SELECT * FROM transactions"
+    results = run_sql(sql)
+    for row in results:
+        merchant = merchant_repository.select(row['merchant_id'])
+        transaction = Transaction(row['amount'], merchant, row['tag'], row['id'])
+        transactions.append(transaction)
+    return transactions
