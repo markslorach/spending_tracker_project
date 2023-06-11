@@ -1,11 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Hello, Mark</p>
 
-<p>Add Transaction</p>
-
-<form action="/transactions" method="POST">
+<form action="/transactions/{{transaction.id}}" method="POST">
 
     <label for="merchant">Merchant</label>
     <input type="text" id="merchant" name="merchant" placeholder="Merchant Name">
@@ -29,34 +26,5 @@
     </select>
 
     <input type="submit" value="Add Transaction">
-
-</form>
-
-<p>All Transactions</p>
-<br>
-<hr>
-
-    {% for transaction in transactions %}
-
-        <div class="transactions-container">
-            <div class="transaction-info">
-                <p>{{ transaction.merchant.name }}</p>
-                <p>{{ transaction.tag }}</p>
-            </div>
-
-            <a href="/transactions/{{transaction.id}}"><button>More Info</button></a>
-
-
-            <!-- <form action="/transactions/{{transaction.id}}/delete" method="POST">
-                <button type="submit">Remove</button>
-            </form> -->
-
-            <div class="transaction-amount">
-                <p>£{{ transaction.amount }}</p>
-            </div>
-            <hr>
-        </div>
-        
-    {% endfor %}
 
 {% endblock %}
