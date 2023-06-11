@@ -8,11 +8,12 @@ import repositories.transaction_repository as transaction_repository
 
 transaction_blueprint = Blueprint("transaction", __name__)
 
-# Show list of transactions
+# Show all transactions and total transaction amount
 @transaction_blueprint.route("/transactions")
 def transactions():
     transactions = transaction_repository.select_all()
-    return render_template("transactions/index.html", transactions = transactions)
+    total = transaction_repository.total_amount()
+    return render_template("transactions/index.html", transactions = transactions, total = total)
 
 # Create new transaction
 @transaction_blueprint.route("/transactions", methods=['POST'])
@@ -39,12 +40,6 @@ def show_transaction(id):
 def delete_transaction(id):
     transaction_repository.delete(id)
     return redirect('/transactions')
-
-# Edit transaction
-@transaction_blueprint.route("/transactions/<id>/edit", methods=['GET'])
-def edit_transaction(id):
-    transaction = transaction_repository.select(id)
-    return render_template("/transactions/edit.html", transaction = transaction)
 
 # Update transaction
 @transaction_blueprint.route("/transactions/<id>", methods=['POST'])

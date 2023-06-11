@@ -51,3 +51,12 @@ def select(id):
         merchant = merchant_repository.select(result['merchant_id'])
         transaction = Transaction(result['amount'], merchant, result['tag'], result['id'])
     return transaction
+
+# Calculates total transactions
+def total_amount():
+    total = 0
+    sql = "SELECT * FROM transactions"
+    results = run_sql(sql)
+    for row in results:
+        total += row['amount']
+    return total
