@@ -7,6 +7,6 @@ CREATE TABLE merchants(
 
 CREATE TABLE transactions(
     id SERIAL PRIMARY KEY,
-    amount FLOAT,
+    amount DECIMAL(10,2),
     merchant_id INTEGER REFERENCES merchants(id) ON DELETE CASCADE,
     tag VARCHAR(255));
