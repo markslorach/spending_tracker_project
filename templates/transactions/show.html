@@ -2,15 +2,139 @@
 
 {% block content %}
 
+<p>Transaction Info</p>
+
 <p>{{ transaction.merchant.name }}</p>
 <p>{{ transaction.tag }}</p>
 <p>£{{ transaction.amount }}</p>
 
-<form action="/transactions/{{transaction.id}}/delete" method="POST">
-    <button type="submit">Delete</button>
-</form>
+ <p>Danger Zone</p>
 
-<form action="/transactions/{{transaction.id}}/edit" method="GET">
-    <button type="submit">Edit</button>
+    <form action="/transactions/{{transaction.id}}/delete" method="POST">
+        <button type="submit">Remove</button>
+    </form>
+
+<p>Update Transaction</p>
+
+<form action="/transactions/{{transaction.id}}" method="POST">
+
+    <input list="uk-merchants" id="merchant" name="merchant" placeholder="Merchant Name" required>
+    <datalist id="uk-merchants">
+    <option value="Amazon UK">
+    <option value="Tesco">
+    <option value="Argos">
+    <option value="Asda">
+    <option value="Sainsbury's">
+    <option value="John Lewis">
+    <option value="Marks &amp; Spencer">
+    <option value="Boots">
+    <option value="Next">
+    <option value="Currys PC World">
+    <option value="IKEA UK">
+    <option value="H&amp;M">
+    <option value="Primark">
+    <option value="B&amp;Q">
+    <option value="Homebase">
+    <option value="Halfords">
+    <option value="Debenhams">
+    <option value="Waitrose">
+    <option value="Wilko">
+    <option value="WHSmith">
+    <option value="Superdrug">
+    <option value="The Body Shop">
+    <option value="TK Maxx">
+    <option value="Sports Direct">
+    <option value="New Look">
+    <option value="River Island">
+    <option value="Topshop">
+    <option value="JD Sports">
+    <option value="Matalan">
+    <option value="Evans Cycles">
+    <option value="Holland &amp; Barrett">
+    <option value="Office">
+    <option value="Paperchase">
+    <option value="Waterstones">
+    <option value="The Range">
+    <option value="Game">
+    <option value="Dunelm">
+    <option value="Clarks">
+    <option value="Oasis">
+    <option value="Laura Ashley">
+    <option value="Mountain Warehouse">
+    <option value="Ann Summers">
+    <option value="O2">
+    <option value="Vodafone UK">
+    <option value="Three UK">
+    <option value="EE">
+    <option value="Carphone Warehouse">
+    <option value="Virgin Media">
+    <option value="Sky UK">
+    <option value="BT">
+    <option value="Giffgaff">
+    <option value="TalkTalk">
+    <option value="Plusnet">
+    <option value="Lidl UK">
+    <option value="Aldi UK">
+    <option value="Iceland Foods">
+    <option value="Morrisons">
+    <option value="Co-op">
+    <option value="B&amp;M Stores">
+    <option value="Home Bargains">
+    <option value="Farmfoods">
+    <option value="Greggs">
+    <option value="Costa Coffee">
+    <option value="Starbucks UK">
+    <option value="Caffè Nero">
+    <option value="Subway UK">
+    <option value="McDonald's UK">
+    <option value="Wickes">
+    <option value="AO.com">
+    <option value="The Works">
+    <option value="Pets at Home">
+    <option value="Euro Car Parts">
+    <option value="Halfords Autocentres">
+    <option value="Go Outdoors">
+    <option value="DFS">
+    <option value="Carpetright">
+    <option value="Dreams">
+    <option value="ScS">
+    <option value="Harveys Furniture">
+    <option value="Furniture Village">
+    <option value="Oak Furnitureland">
+    <option value="Dunelm">
+    <option value="DFS">
+    <option value="Sofology">
+    <option value="Habitat">
+    <option value="Cox &amp; Cox">
+    <option value="The Cotswold Company">
+    <option value="Wayfair UK">
+    <option value="Made in Design">
+    <option value="La Redoute">
+    <option value="Lovehoney">
+    <option value="Bondara">
+    <option value="Ann Summers">
+    <option value="Victoria's Secret UK">
+    <option value="Boux Avenue">
+    </datalist>
+
+    <label for="amount">Amount</label>
+    <input type="number" step="0.1" id="amount" name="amount" placeholder="Amount" required>
+
+    <input list="tag-list" id="tag" name="tag" placeholder="Select a category" required>
+
+    <datalist id="tag-list">
+        <option value="General">
+        <option value="Groceries">
+        <option value="Eating Out">
+        <option value="Transportation">
+        <option value="Auto Care">
+        <option value="Takeaway">
+        <option value="Entertainment">
+        <option value="Shopping">
+        <option value="Personal Care">
+        <option value="Holidays">
+    </datalist>
+
+    <input type="submit" value="Update Transaction">
 
 {% endblock %}
