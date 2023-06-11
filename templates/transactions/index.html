@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+<p>Hello, Mark</p>
+
+<p>Add Transaction</p>
 
 <form action="/transactions" method="POST">
     <label for="merchant">Merchant</label>
@@ -12,13 +15,24 @@
     <label for="tag">Tag</label>
     <select id="tag" name="tag">
         <option value="" selected disabled>Select a category</option>
-        <option value="category1">Category 1</option>
-        <option value="category2">Category 2</option>
-        <option value="category3">Category 3</option>
+        <option value="general">General Expenses</option>
+        <option value="groceries">Groceries</option>
+        <option value="eating-out">Eating Out</option>
+        <option value="transportation">Transportation</option>
+        <option value="takeaway">Takeaway</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="shopping">Shopping</option>
+        <option value="personal-care">Personal Care</option>
+        <option value="gifts">Gifts</option>
+        <option value="holidays">Holidays</option>
     </select>
 
     <input type="submit" value="Add Transaction">
 </form>
+
+<p>All Transactions</p>
+<br>
+<hr>
 
     {% for transaction in transactions %}
 
@@ -28,9 +42,12 @@
                 <p>{{ transaction.tag }}</p>
             </div>
 
-            <form action="/transactions/{{transaction.id}}/delete" method="POST">
-                <button type="submit">Delete</button>
-            </form>
+            <a href="/transactions/{{transaction.id}}"><button>More Info</button></a>
+
+
+            <!-- <form action="/transactions/{{transaction.id}}/delete" method="POST">
+                <button type="submit">Remove</button>
+            </form> -->
 
             <div class="transaction-amount">
                 <p>£{{ transaction.amount }}</p>
