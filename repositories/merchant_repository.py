@@ -48,3 +48,12 @@ def select(id):
     if result is not None:
         merchant = Merchant(result['name'], result['id'])
     return merchant
+
+# Selects a merchant from the database by name
+def select_by_name(name):
+    sql = "SELECT * FROM merchants WHERE name = %s"
+    values = [name]
+    result = run_sql(sql, values)
+    if result:
+        return Merchant(result[0]['name'], result[0]['id'])
+    return None
