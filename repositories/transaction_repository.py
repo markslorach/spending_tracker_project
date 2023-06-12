@@ -72,3 +72,13 @@ def select_by_month(month):
         transaction = Transaction(row['amount'], merchant, row['date'], row['tag'], row['id'])
         transactions.append(transaction)
     return transactions
+
+# total transactions for month
+def total_amount_of_month(month):
+    total = 0
+    sql = "SELECT * FROM transactions WHERE EXTRACT(MONTH FROM date) = %s"
+    values = [month]
+    results = run_sql(sql, values)
+    for row in results:
+        total += row['amount']
+    return total

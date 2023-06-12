@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.merchant import Merchant
@@ -58,9 +59,17 @@ def update_transaction(id):
     return redirect('/transactions')
 
 # Sort transactions by month
+# @transaction_blueprint.route("/transactions/filter", methods=['POST'])
+# def sort_by_month():
+#     filter = request.form['filter']
+#     transactions = transaction_repository.select_by_month(filter)
+#     total = transaction_repository.total_amount()
+#     return render_template("transactions/index.html", transactions = transactions, total = total)
+
 @transaction_blueprint.route("/transactions/filter", methods=['POST'])
 def sort_by_month():
-    filter = request.form['filter']
-    transactions = transaction_repository.select_by_month(filter)
-    total = transaction_repository.total_amount()
-    return render_template("transactions/index.html", transactions = transactions, total = total)
+    selected_month = request.form['filter']
+    month_name = datetime.strptime(selected_month, "%m").strftime("%B")
+    transactions = transaction_repository.select_by_month(selected_month)
+    total = transaction_repository.total_amount_of_month(selected_month)
+    return render_template("transactions/index.html", transactions=transactions, total=total, selected_month=month_name)

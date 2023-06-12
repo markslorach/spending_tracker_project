@@ -34,12 +34,12 @@
 
 </form>
 
+<p>Filter Transaction</p>
+
+<button><a href="/transactions">All Transactions</a></button>
+
 <form action="/transactions/filter" method="POST">
-
-    <label for="filter">Month: </label>
-
     <select name="filter" id="filter">
-        <option value="" selected>Select a month</option>
         <option value="01">January</option>
         <option value="02">February</option>
         <option value="03">March</option>
@@ -53,12 +53,14 @@
         <option value="11">November</option>
         <option value="12">December</option>
     </select>
-
     <button type="submit">Filter</button>
-
 </form>
 
-<p>All Transactions</p>
+{% if selected_month %}
+    <p>{{ selected_month }} Transactions</p>
+{% else %}
+    <p>All Transactions</p>
+{% endif %}
 <br>
 <hr>
 
@@ -85,6 +87,6 @@
         
     {% endfor %}
 
-    <p><b>Total:</b> {{ total }}</p>
+    <p><b>Total:</b> £{{ total }}</p>
 
 {% endblock %}
