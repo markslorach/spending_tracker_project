@@ -33,7 +33,7 @@ def update(transaction):
 # Selects all transactions from the database
 def select_all():
     transactions = []
-    sql = "SELECT * FROM transactions"
+    sql = "SELECT * FROM transactions ORDER BY date DESC"
     results = run_sql(sql)
     for row in results:
         merchant = merchant_repository.select(row['merchant_id'])

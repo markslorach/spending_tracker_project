@@ -26,10 +26,10 @@ merchant_repository.save(merchant_5)
 
 # Inital transactions - date = year-month-day
 transaction_1 = Transaction(4.50, merchant_1, date(2023, 6, 10), "Takeaway")
-transaction_2 = Transaction(12.50, merchant_2, date(2023, 6, 10), "Groceries")
-transaction_3 = Transaction(25.00, merchant_3, date(2023, 6,10), "Autocare")
-transaction_4 = Transaction(15.00, merchant_4, date(2023, 6, 10), "Entertainment")
-transaction_5 = Transaction(5.50, merchant_5, date(2023, 6, 10), "Takeaway")
+transaction_2 = Transaction(12.50, merchant_2, date(2023, 6, 9), "Groceries")
+transaction_3 = Transaction(25.00, merchant_3, date(2023, 6,7), "Autocare")
+transaction_4 = Transaction(15.00, merchant_4, date(2023, 6, 7), "Entertainment")
+transaction_5 = Transaction(5.50, merchant_5, date(2023, 6, 5), "Takeaway")
 
 # Save transactions to database
 transaction_repository.save(transaction_1)
