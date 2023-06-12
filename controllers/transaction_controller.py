@@ -57,9 +57,10 @@ def update_transaction(id):
     transaction_repository.update(transaction)
     return redirect('/transactions')
 
-# # Get transactions by month
-# @transaction_blueprint.route("/transactions/month/<month>", methods=['GET'])
-# def transactions_by_month(month):
-#     transactions = transaction_repository.select_by_month(month)
-#     total = transaction_repository.total_amount()
-#     return render_template("/transactions/month.html", transactions = transactions, total = total)
+# Sort transactions by month
+@transaction_blueprint.route("/transactions/filter", methods=['POST'])
+def sort_by_month():
+    filter = request.form['filter']
+    transactions = transaction_repository.select_by_month(filter)
+    total = transaction_repository.total_amount()
+    return render_template("transactions/index.html", transactions = transactions, total = total)
