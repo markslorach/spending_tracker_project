@@ -56,3 +56,10 @@ def update_transaction(id):
     transaction = Transaction(amount, merchant, date, tag, id)
     transaction_repository.update(transaction)
     return redirect('/transactions')
+
+# # Get transactions by month
+# @transaction_blueprint.route("/transactions/month/<month>", methods=['GET'])
+# def transactions_by_month(month):
+#     transactions = transaction_repository.select_by_month(month)
+#     total = transaction_repository.total_amount()
+#     return render_template("/transactions/month.html", transactions = transactions, total = total)
