@@ -1,4 +1,5 @@
 import pdb
+from datetime import date
 from models.merchant import Merchant
 from models.transaction import Transaction
 import repositories.merchant_repository as merchant_repository
@@ -23,12 +24,12 @@ merchant_repository.save(merchant_3)
 merchant_repository.save(merchant_4)
 merchant_repository.save(merchant_5)
 
-# Inital transactions
-transaction_1 = Transaction(4.50, merchant_1, "Takeaway")
-transaction_2 = Transaction(12.50, merchant_2, "Groceries")
-transaction_3 = Transaction(25.00, merchant_3, "Autocare")
-transaction_4 = Transaction(15.00, merchant_4, "Entertainment")
-transaction_5 = Transaction(5.50, merchant_5, "Takeaway")
+# Inital transactions - date = year-month-day
+transaction_1 = Transaction(4.50, merchant_1, date(2023, 6, 10), "Takeaway")
+transaction_2 = Transaction(12.50, merchant_2, date(2023, 6, 10), "Groceries")
+transaction_3 = Transaction(25.00, merchant_3, date(2023, 6,10), "Autocare")
+transaction_4 = Transaction(15.00, merchant_4, date(2023, 6, 10), "Entertainment")
+transaction_5 = Transaction(5.50, merchant_5, date(2023, 6, 10), "Takeaway")
 
 # Save transactions to database
 transaction_repository.save(transaction_1)

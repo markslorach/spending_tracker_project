@@ -20,12 +20,13 @@ def transactions():
 def create_transaction():
     amount = request.form['amount']
     merchant_name = request.form['merchant']
+    date = request.form['date']
     tag = request.form['tag']
     merchant = merchant_repository.select_by_name(merchant_name)
     if merchant is None:
         merchant = Merchant(merchant_name)
         merchant_repository.save(merchant)
-    transaction = Transaction(amount, merchant, tag)
+    transaction = Transaction(amount, merchant, date, tag)
     transaction_repository.save(transaction)
     return redirect('/transactions')
 
@@ -46,11 +47,12 @@ def delete_transaction(id):
 def update_transaction(id):
     amount = request.form['amount']
     merchant_name = request.form['merchant']
+    date = request.form['date']
     tag = request.form['tag']
     merchant = merchant_repository.select_by_name(merchant_name)
     if merchant is None:
         merchant = Merchant(merchant_name)
         merchant_repository.save(merchant)
-    transaction = Transaction(amount, merchant, tag, id)
+    transaction = Transaction(amount, merchant, date, tag, id)
     transaction_repository.update(transaction)
     return redirect('/transactions')

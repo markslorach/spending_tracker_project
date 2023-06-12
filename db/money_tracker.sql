@@ -9,4 +9,5 @@ CREATE TABLE transactions(
     id SERIAL PRIMARY KEY,
     amount DECIMAL(10,2),
     merchant_id INTEGER REFERENCES merchants(id) ON DELETE CASCADE,
+    date DATE,
     tag VARCHAR(255));

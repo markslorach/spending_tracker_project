@@ -1,13 +1,13 @@
 from db.run_sql import run_sql
-
+import datetime
 from models.merchant import Merchant
 from models.transaction import Transaction
 import repositories.merchant_repository as merchant_repository
 
 # Saves a transaction to the database
 def save(transaction):
-    sql = "INSERT INTO transactions (amount, merchant_id, tag) VALUES (%s, %s, %s) RETURNING *"
-    values = [transaction.amount, transaction.merchant.id, transaction.tag]
+    sql = "INSERT INTO transactions (amount, merchant_id, date, tag) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [transaction.amount, transaction.merchant.id, transaction.date, transaction.tag]
     results = run_sql(sql, values)
     id = results[0]['id']
     transaction.id = id
@@ -24,10 +24,10 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-# Updates a transaction in the database
+# Updates a transaction in the database with date
 def update(transaction):
-    sql = "UPDATE transactions SET (amount, merchant_id, tag) = (%s, %s, %s) WHERE id = %s"
-    values = [transaction.amount, transaction.merchant.id, transaction.tag, transaction.id]
+    sql = "UPDATE transactions SET (amount, merchant_id, date, tag) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [transaction.amount, transaction.merchant.id, transaction.date, transaction.tag, transaction.id]
     run_sql(sql, values)
 
 # Selects all transactions from the database
@@ -37,7 +37,7 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         merchant = merchant_repository.select(row['merchant_id'])
-        transaction = Transaction(row['amount'], merchant, row['tag'], row['id'])
+        transaction = Transaction(row['amount'], merchant, row['date'], row['tag'], row['id'])
         transactions.append(transaction)
     return transactions
 
@@ -49,7 +49,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     if result is not None:
         merchant = merchant_repository.select(result['merchant_id'])
-        transaction = Transaction(result['amount'], merchant, result['tag'], result['id'])
+        transaction = Transaction(result['amount'], merchant, result['date'], result['tag'], result['id'])
     return transaction
 
 # Calculates total transactions
