@@ -22,7 +22,7 @@ flask run
 Make sure you have the following software installed on your system:
 
 - PostgreSQL: You can download and install PostgreSQL from the official website.
-- 
+
 ## Usage
 
 Once the application is up and running, you can access it through your web browser on `http://localhost:5000` The main features of the application include:
