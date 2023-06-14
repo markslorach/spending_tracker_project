@@ -1,7 +1,6 @@
 html {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  letter-spacing: 0.7px;
   box-sizing: border-box;
 }
 body,
@@ -106,9 +105,9 @@ label {
 
 .nav-item {
   padding: 20px;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 16px;
-  word-spacing: 1px;
+  letter-spacing: 0.8px;
 }
 
 .nav-link {
@@ -135,6 +134,10 @@ label {
   padding: 20px;
 }
 
+.fa-solid{
+  margin-right: 6px;
+}
+
 #nav-logo {
   width: 190px;
   max-width: 100%;
@@ -149,9 +152,9 @@ label {
 }
 
 main {
-  padding: 5rem;
+  padding: 4.8rem 5rem 5rem 5rem;
   padding-left: 24rem;
-  padding-right: 9rem;
+  padding-right: 7rem;
 }
 
 .add-transaction-container {
@@ -183,6 +186,9 @@ main {
 
 .heading {
   margin-bottom: 20px;
+  font-weight: 16px;
+  word-spacing: 1px;
+  font-size: 17px;
 }
 
 .filter-form {
@@ -249,6 +255,7 @@ main {
   overflow-y: scroll;
   padding: 0px 0px 8px 0px;
   margin-bottom: 20px;
+  margin-top: -2px;
 }
 
 .transactions-flex {
