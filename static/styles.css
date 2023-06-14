@@ -91,7 +91,6 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 34px;
 }
 
 .nav-bar-navgation {
@@ -100,11 +99,6 @@ label {
   align-items: center;
   height: 100vh;
 }
-
-.nav-item-3 {
-  margin: auto;
-}
-
 
 #nav-logo {
   width: 200px;
