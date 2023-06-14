@@ -58,6 +58,7 @@ def update_transaction(id):
     transaction_repository.update(transaction)
     return redirect('/transactions')
 
+# Sort transactions by month
 @transaction_blueprint.route("/transactions/filter", methods=['POST'])
 def sort_by_month():
     selected_month = request.form['filter']

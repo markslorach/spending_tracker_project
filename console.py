@@ -87,7 +87,7 @@ transaction_16 = Transaction(50.00, merchant_apr_2, date(2023, 4, 9), "Shopping 
 transaction_17 = Transaction(60.00, merchant_apr_3, date(2023, 4, 7), "Clothes 👕")
 
 # May
-transaction_18 = Transaction(100.00, merchant_may_1, date(2023, 5, 10), "Autocare 🚗")
+transaction_18 = Transaction(90.00, merchant_may_1, date(2023, 5, 10), "Autocare 🚗")
 transaction_19 = Transaction(20.00, merchant_may_2, date(2023, 5, 9), "Pub 🍻")
 transaction_20 = Transaction(10.00, merchant_may_3, date(2023, 5, 7), "Transport 🚆")
 
@@ -120,6 +120,6 @@ transaction_repository.save(transaction_18)
 transaction_repository.save(transaction_19)
 transaction_repository.save(transaction_20)
 
-# # merchants = merchant_repository.select_all()
+# merchants = merchant_repository.select_all()
 # transactions = transaction_repository.select_all()
 # print(transactions)
