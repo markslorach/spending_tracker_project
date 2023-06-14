@@ -94,9 +94,17 @@ label {
   padding-top: 34px;
 }
 
-.nav-bar:hover {
-  width: 280px;
+.nav-bar-navgation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
+
+.nav-item-3 {
+  margin: auto;
+}
+
 
 #nav-logo {
   width: 200px;
