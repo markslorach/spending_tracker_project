@@ -64,7 +64,7 @@ def total_amount():
 # Sort transaction by month
 def select_by_month(month):
     transactions = []
-    sql = "SELECT * FROM transactions WHERE EXTRACT(MONTH FROM date) = %s"
+    sql = "SELECT * FROM transactions WHERE EXTRACT(MONTH FROM date) = %s ORDER BY date DESC"
     values = [month]
     results = run_sql(sql, values)
     for row in results:
@@ -73,7 +73,7 @@ def select_by_month(month):
         transactions.append(transaction)
     return transactions
 
-# total transactions for month
+# Calculates total transactions for month
 def total_amount_of_month(month):
     total = 0
     sql = "SELECT * FROM transactions WHERE EXTRACT(MONTH FROM date) = %s"
