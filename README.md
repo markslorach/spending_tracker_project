@@ -42,9 +42,3 @@ This application takes inspiration from popular online and mobile banking apps s
 ## Authors
 
 This application was developed by Mark Slorach for CodeClan’s full stack solo project.
-
-## Screenshots
-
-![Transactions](static/images/screenshot_1)
-
-![Transaction Info](static/images/screenshot_2)
