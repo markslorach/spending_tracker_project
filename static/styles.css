@@ -1,5 +1,6 @@
 html {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   box-sizing: border-box;
 }
@@ -107,7 +108,7 @@ label {
   padding: 20px;
   font-weight: 300;
   font-size: 16px;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
 }
 
 .nav-link {
