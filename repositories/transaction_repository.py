@@ -61,7 +61,7 @@ def total_amount():
         total += row['amount']
     return total
 
-# Sort transaction by month
+# Select transaction by month
 def select_by_month(month):
     transactions = []
     sql = "SELECT * FROM transactions WHERE EXTRACT(MONTH FROM date) = %s ORDER BY date DESC"
